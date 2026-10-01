@@ -16,6 +16,10 @@ The activity uses UiPath Robot-native logging and does not require `IAP.Logging`
 
 ## Build and test
 
+For the simplest build, double-click `BuildArtifacts.exe`. The launcher builds and tests the complete solution, creates the package under `artifacts/packages`, and opens that folder when successful. It requires the .NET 10 SDK or newer; see [BuildIt.md](BuildIt.md) for exit codes, automation mode, troubleshooting, and launcher rebuild instructions.
+
+For a manual build:
+
 ```powershell
 dotnet restore ValidatedTypeInto.slnx --configfile NuGet.config
 dotnet build ValidatedTypeInto.slnx -c Release --no-restore

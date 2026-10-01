@@ -9,7 +9,7 @@
     <readme>README.md</readme>
     <description>UiPath Windows activity for validated Type Into with precondition, read-back verification, retry, and Robot-native logging.</description>
     <tags>UiPathActivities UiPath RPA UIAutomation TypeInto Validation</tags>
-    <repository type="git" />
+    <repository type="git" commit="d9cef3605c1fad273935ddb92b103570f24ae89e" />
     <dependencies>
       <group targetFramework="net6.0-windows7.0">
         <dependency id="System.Activities.ViewModels" version="1.20260609.1" exclude="Build,Analyzers" />

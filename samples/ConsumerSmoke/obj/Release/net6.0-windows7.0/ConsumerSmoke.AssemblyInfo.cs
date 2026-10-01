@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConsumerSmoke")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9cef3605c1fad273935ddb92b103570f24ae89e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConsumerSmoke")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConsumerSmoke")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

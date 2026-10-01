@@ -492,3 +492,4 @@ C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\tests\ValidatedTypeInto.Te
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\tests\ValidatedTypeInto.Tests\obj\Release\net6.0-windows7.0\ValidatedTypeInto.Tests.pdb
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\tests\ValidatedTypeInto.Tests\obj\Release\net6.0-windows7.0\ValidatedTypeInto.Tests.genruntimeconfig.cache
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\tests\ValidatedTypeInto.Tests\obj\Release\net6.0-windows7.0\ref\ValidatedTypeInto.Tests.dll
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\tests\ValidatedTypeInto.Tests\obj\Release\net6.0-windows7.0\ValidatedTypeInto.Tests.sourcelink.json

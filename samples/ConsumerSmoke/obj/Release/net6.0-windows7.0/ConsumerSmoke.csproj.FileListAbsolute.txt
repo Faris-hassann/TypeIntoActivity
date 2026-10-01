@@ -10,3 +10,4 @@ C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\refint\ConsumerSmoke.dll
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ConsumerSmoke.pdb
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ref\ConsumerSmoke.dll
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ConsumerSmoke.sourcelink.json

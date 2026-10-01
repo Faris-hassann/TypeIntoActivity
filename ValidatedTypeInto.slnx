@@ -4,9 +4,13 @@
     <Project Path="src/ValidatedTypeInto.Packaging/ValidatedTypeInto.Packaging.csproj" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/ValidatedTypeInto.ArtifactBuilder.Tests/ValidatedTypeInto.ArtifactBuilder.Tests.csproj" />
     <Project Path="tests/ValidatedTypeInto.Tests/ValidatedTypeInto.Tests.csproj" />
   </Folder>
   <Folder Name="/samples/">
     <Project Path="samples/ConsumerSmoke/ConsumerSmoke.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/ValidatedTypeInto.ArtifactBuilder/ValidatedTypeInto.ArtifactBuilder.csproj" />
   </Folder>
 </Solution>

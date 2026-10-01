@@ -80,3 +80,4 @@ C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\src\ValidatedTypeInto.Acti
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\src\ValidatedTypeInto.Activities\obj\Release\net6.0-windows7.0\Vodafone.Robotics.ValidatedTypeInto.Activities.xml
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\src\ValidatedTypeInto.Activities\obj\Release\net6.0-windows7.0\Vodafone.Robotics.ValidatedTypeInto.Activities.pdb
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\src\ValidatedTypeInto.Activities\obj\Release\net6.0-windows7.0\ref\Vodafone.Robotics.ValidatedTypeInto.Activities.dll
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\src\ValidatedTypeInto.Activities\obj\Release\net6.0-windows7.0\ValidatedTypeInto.Activities.sourcelink.json

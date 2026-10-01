@@ -78,3 +78,4 @@ C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\src\ValidatedTypeInto.Pack
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\src\ValidatedTypeInto.Packaging\obj\Release\net6.0-windows7.0\Validate.48AE1707.Up2Date
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\src\ValidatedTypeInto.Packaging\obj\Release\net6.0-windows7.0\ValidatedTypeInto.Packaging.dll
 C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\src\ValidatedTypeInto.Packaging\obj\Release\net6.0-windows7.0\ValidatedTypeInto.Packaging.pdb
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\src\ValidatedTypeInto.Packaging\obj\Release\net6.0-windows7.0\ValidatedTypeInto.Packaging.sourcelink.json
