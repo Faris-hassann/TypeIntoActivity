@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v10.0": {
-      "ValidatedTypeInto.ArtifactBuilder.Tests/1.0.0": {
+      "ValidatedTypeInto.ArtifactBuilder.Tests/1.0.1": {
         "dependencies": {
-          "BuildArtifacts": "1.0.0",
+          "BuildArtifacts": "1.0.1",
           "Microsoft.NET.Test.Sdk": "17.13.0",
           "xunit": "2.9.3",
-          "BuildArtifacts.Reference": "1.0.0.0"
+          "BuildArtifacts.Reference": "1.0.1.0"
         },
         "runtime": {
           "ValidatedTypeInto.ArtifactBuilder.Tests.dll": {}
@@ -332,25 +332,25 @@
           }
         }
       },
-      "BuildArtifacts/1.0.0": {
+      "BuildArtifacts/1.0.1": {
         "runtime": {
           "BuildArtifacts.dll": {
             "fileVersion": "0.0.0.0"
           }
         }
       },
-      "BuildArtifacts.Reference/1.0.0.0": {
+      "BuildArtifacts.Reference/1.0.1.0": {
         "runtime": {
           "BuildArtifacts.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
           }
         }
       }
     }
   },
   "libraries": {
-    "ValidatedTypeInto.ArtifactBuilder.Tests/1.0.0": {
+    "ValidatedTypeInto.ArtifactBuilder.Tests/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -432,12 +432,12 @@
       "path": "xunit.extensibility.execution/2.9.3",
       "hashPath": "xunit.extensibility.execution.2.9.3.nupkg.sha512"
     },
-    "BuildArtifacts/1.0.0": {
+    "BuildArtifacts/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "BuildArtifacts.Reference/1.0.0.0": {
+    "BuildArtifacts.Reference/1.0.1.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

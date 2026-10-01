@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "W1rb2W/LNA0=",
+  "dgSpecHash": "QTfv1rxx9ns=",
   "success": true,
   "projectFilePath": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\samples\\ConsumerSmoke\\ConsumerSmoke.csproj",
   "expectedPackageFiles": [
@@ -131,7 +131,7 @@
     "C:\\Users\\VOIS\\.nuget\\packages\\uipath.vision\\3.14.2\\uipath.vision.3.14.2.nupkg.sha512",
     "C:\\Users\\VOIS\\.nuget\\packages\\uipath.workflow\\6.0.0-20240401-07\\uipath.workflow.6.0.0-20240401-07.nupkg.sha512",
     "C:\\Users\\VOIS\\.nuget\\packages\\uipath.workflow.runtime\\6.0.0-20240401-07\\uipath.workflow.runtime.6.0.0-20240401-07.nupkg.sha512",
-    "C:\\Users\\VOIS\\.nuget\\packages\\vodafone.robotics.validatedtypeinto.activities\\1.0.0\\vodafone.robotics.validatedtypeinto.activities.1.0.0.nupkg.sha512",
+    "C:\\Users\\VOIS\\.nuget\\packages\\vodafone.robotics.validatedtypeinto.activities\\1.0.1\\vodafone.robotics.validatedtypeinto.activities.1.0.1.nupkg.sha512",
     "C:\\Users\\VOIS\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.36\\microsoft.netcore.app.ref.6.0.36.nupkg.sha512",
     "C:\\Users\\VOIS\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.36\\microsoft.windowsdesktop.app.ref.6.0.36.nupkg.sha512",
     "C:\\Users\\VOIS\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.36\\microsoft.aspnetcore.app.ref.6.0.36.nupkg.sha512"

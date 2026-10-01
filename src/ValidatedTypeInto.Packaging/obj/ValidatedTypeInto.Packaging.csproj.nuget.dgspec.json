@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Activities\\ValidatedTypeInto.Activities.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Activities\\ValidatedTypeInto.Activities.csproj",
         "projectName": "Vodafone.Robotics.ValidatedTypeInto.Runtime",
@@ -102,7 +102,7 @@
       }
     },
     "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Packaging\\ValidatedTypeInto.Packaging.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Packaging\\ValidatedTypeInto.Packaging.csproj",
         "projectName": "Vodafone.Robotics.ValidatedTypeInto.Activities",

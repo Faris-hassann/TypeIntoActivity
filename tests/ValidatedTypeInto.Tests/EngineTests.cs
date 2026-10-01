@@ -1,3 +1,4 @@
+using Vodafone.Robotics.ValidatedTypeInto.Automation;
 using Vodafone.Robotics.ValidatedTypeInto.Engine;
 using Vodafone.Robotics.ValidatedTypeInto.Logging;
 using Vodafone.Robotics.ValidatedTypeInto.Models;
@@ -8,66 +9,115 @@ public sealed class EngineTests
 {
     private static ValidatedTypeIntoConfiguration Config() => new()
     {
-        TimeoutL = 30_000,
-        TimeoutS = 10_000,
+        ActivityName = "Enter Customer ID",
+        TimeoutMilliseconds = 10_000,
         NumberOfRetries = 0,
         RetryInterval = TimeSpan.Zero,
         ValueToBeWritten = "ABC-123",
-        PreConditionSelector = "pre",
-        TargetSelector = "target",
-        PostConditionSelector = "post",
-        PreConditionSuccessMessage = "pre ok",
-        PreConditionFailedMessage = "pre failed",
-        PostConditionSuccessMessage = "post ok",
-        PostConditionFailedMessage = "post failed"
+        TargetSelector = "secret-selector",
+        AlterIfDisabled = true,
+        ClickBeforeTyping = true,
+        EmptyField = true,
+        SimulateType = true
     };
 
-    [Fact]
-    public void Success_uses_stage_timeouts_flags_and_supplied_messages()
+    public static IEnumerable<object[]> FlagCombinations()
     {
-        var work = new FakeTarget();
-        var adapter = new FakeAdapter()
-            .Add("pre", new FakeTarget())
-            .Add("target", work)
-            .Add("post", new FakeTarget { Text = "  ABC-123  " });
-        var logger = new RecordingLogger();
-
-        new ValidatedTypeIntoEngine(adapter, logger).Execute(Config() with
-        {
-            AlterIfDisabled = false,
-            ClickBeforeTyping = false,
-            EmptyField = false,
-            SimulateType = false
-        });
-
-        Assert.Equal(("ABC-123", false, false, false, false), work.LastType);
-        Assert.Equal(new[] { 30_000, 10_000, 10_000 }, adapter.Calls.Select(c => c.Timeout));
-        Assert.Contains((ValidationLogLevel.Information, "pre ok"), logger.Events);
-        Assert.Contains((ValidationLogLevel.Information, "post ok"), logger.Events);
+        foreach (var alter in new[] { false, true })
+        foreach (var click in new[] { false, true })
+        foreach (var empty in new[] { false, true })
+        foreach (var simulate in new[] { false, true })
+            yield return new object[] { alter, click, empty, simulate };
     }
 
     [Fact]
-    public void Missing_precondition_logs_and_never_types()
+    public void Success_uses_same_selector_and_timeout_for_three_fresh_resolutions()
     {
         var work = new FakeTarget();
+        var adapter = new FakeAdapter().Add("secret-selector",
+            new FakeTarget(), work, new FakeTarget { Text = "  ABC-123  " });
         var logger = new RecordingLogger();
-        var adapter = new FakeAdapter().Add("pre", (Vodafone.Robotics.ValidatedTypeInto.Automation.IUiTarget?)null).Add("target", work);
+
+        new ValidatedTypeIntoEngine(adapter, logger).Execute(Config());
+
+        Assert.Equal(3, adapter.Calls.Count);
+        Assert.All(adapter.Calls, call =>
+        {
+            Assert.Equal("secret-selector", call.Selector);
+            Assert.Equal(10_000, call.Timeout);
+        });
+        Assert.Equal(("ABC-123", true, true, true, true), work.LastType);
+        Assert.Contains(logger.Events, item => item.Level == ValidationLogLevel.Information && item.Message.Contains("Attempt 1/1"));
+        Assert.Contains(logger.Events, item => item.Message.Contains("PreCondition passed"));
+        Assert.Contains(logger.Events, item => item.Message.Contains("DoWork completed"));
+        Assert.Contains(logger.Events, item => item.Message.Contains("PostCondition passed"));
+    }
+
+    [Theory]
+    [MemberData(nameof(FlagCombinations))]
+    public void Every_type_into_flag_combination_is_forwarded(bool alter, bool click, bool empty, bool simulate)
+    {
+        var work = new FakeTarget();
+        var adapter = new FakeAdapter().Add("secret-selector",
+            new FakeTarget(), work, new FakeTarget { Text = "ABC-123" });
+
+        new ValidatedTypeIntoEngine(adapter, new RecordingLogger()).Execute(Config() with
+        {
+            AlterIfDisabled = alter,
+            ClickBeforeTyping = click,
+            EmptyField = empty,
+            SimulateType = simulate
+        });
+
+        Assert.Equal(("ABC-123", alter, click, empty, simulate), work.LastType);
+    }
+
+    [Fact]
+    public void Missing_precondition_logs_error_and_never_types()
+    {
+        var logger = new RecordingLogger();
+        var adapter = new FakeAdapter().Add("secret-selector", (IUiTarget?)null);
 
         var exception = Assert.Throws<ValidatedTypeIntoException>(() =>
             new ValidatedTypeIntoEngine(adapter, logger).Execute(Config()));
 
         Assert.Equal(ValidationStage.PreCondition, exception.Stage);
-        Assert.Equal(0, work.TypeCount);
-        Assert.Contains((ValidationLogLevel.Error, "pre failed"), logger.Events);
+        Assert.Contains(logger.Events, item => item.Level == ValidationLogLevel.Error && item.Message.Contains("PreCondition failed"));
+        Assert.Single(adapter.Calls);
+    }
+
+    [Fact]
+    public void Missing_do_work_target_is_classified_and_logged()
+    {
+        var logger = new RecordingLogger();
+        var adapter = new FakeAdapter().Add("secret-selector", new FakeTarget(), null);
+
+        var exception = Assert.Throws<ValidatedTypeIntoException>(() =>
+            new ValidatedTypeIntoEngine(adapter, logger).Execute(Config()));
+
+        Assert.Equal(ValidationStage.DoWork, exception.Stage);
+        Assert.Contains(logger.Events, item => item.Level == ValidationLogLevel.Error && item.Message.Contains("DoWork failed"));
+    }
+
+    [Fact]
+    public void Type_into_failure_is_classified_and_logged_without_exception_details()
+    {
+        var logger = new RecordingLogger();
+        var work = new FakeTarget { OnType = (_, _) => throw new InvalidOperationException("secret-selector ABC-123") };
+        var adapter = new FakeAdapter().Add("secret-selector", new FakeTarget(), work);
+
+        var exception = Assert.Throws<ValidatedTypeIntoException>(() =>
+            new ValidatedTypeIntoEngine(adapter, logger).Execute(Config()));
+
+        Assert.Equal(ValidationStage.DoWork, exception.Stage);
+        Assert.DoesNotContain(logger.Events, item => item.Message.Contains("secret-selector") || item.Message.Contains("ABC-123"));
     }
 
     [Fact]
     public void Postcondition_is_trimmed_but_case_sensitive()
     {
-        var adapter = new FakeAdapter()
-            .Add("pre", new FakeTarget())
-            .Add("target", new FakeTarget())
-            .Add("post", new FakeTarget { Text = "abc-123" });
+        var adapter = new FakeAdapter().Add("secret-selector",
+            new FakeTarget(), new FakeTarget(), new FakeTarget { Text = "abc-123" });
 
         var exception = Assert.Throws<ValidatedTypeIntoException>(() =>
             new ValidatedTypeIntoEngine(adapter, new RecordingLogger()).Execute(Config()));
@@ -76,39 +126,59 @@ public sealed class EngineTests
     }
 
     [Fact]
-    public void Complete_sequence_retries_and_then_succeeds()
+    public void Missing_postcondition_target_is_classified_and_logged()
     {
-        var work1 = new FakeTarget();
-        var work2 = new FakeTarget();
-        var delays = new List<TimeSpan>();
-        var adapter = new FakeAdapter()
-            .Add("pre", new FakeTarget(), new FakeTarget())
-            .Add("target", work1, work2)
-            .Add("post", new FakeTarget { Text = "wrong" }, new FakeTarget { Text = "ABC-123" });
+        var logger = new RecordingLogger();
+        var adapter = new FakeAdapter().Add("secret-selector", new FakeTarget(), new FakeTarget(), null);
 
-        new ValidatedTypeIntoEngine(adapter, new RecordingLogger(), delays.Add)
+        var exception = Assert.Throws<ValidatedTypeIntoException>(() =>
+            new ValidatedTypeIntoEngine(adapter, logger).Execute(Config()));
+
+        Assert.Equal(ValidationStage.PostCondition, exception.Stage);
+        Assert.Contains(logger.Events, item => item.Message.Contains("PostCondition failed"));
+    }
+
+    [Fact]
+    public void Complete_sequence_retries_and_logs_schedule_then_success()
+    {
+        var delays = new List<TimeSpan>();
+        var logger = new RecordingLogger();
+        var adapter = new FakeAdapter().Add("secret-selector",
+            new FakeTarget(), new FakeTarget(), new FakeTarget { Text = "wrong" },
+            new FakeTarget(), new FakeTarget(), new FakeTarget { Text = "ABC-123" });
+
+        new ValidatedTypeIntoEngine(adapter, logger, delays.Add)
             .Execute(Config() with { NumberOfRetries = 1, RetryInterval = TimeSpan.FromSeconds(2) });
 
-        Assert.Equal(1, work1.TypeCount);
-        Assert.Equal(1, work2.TypeCount);
+        Assert.Equal(6, adapter.Calls.Count);
         Assert.Equal(new[] { TimeSpan.FromSeconds(2) }, delays);
+        Assert.Contains(logger.Events, item => item.Level == ValidationLogLevel.Information &&
+            item.Message.Contains("attempt 2/2 will begin in 2000 ms"));
+    }
+
+    [Fact]
+    public void Retry_exhaustion_logs_final_error_with_stage_and_attempt_count()
+    {
+        var logger = new RecordingLogger();
+        var adapter = new FakeAdapter().Add("secret-selector", (IUiTarget?)null, null, null);
+
+        var exception = Assert.Throws<ValidatedTypeIntoException>(() =>
+            new ValidatedTypeIntoEngine(adapter, logger).Execute(Config() with { NumberOfRetries = 2 }));
+
+        Assert.Equal(3, exception.Attempt);
+        Assert.Contains(logger.Events, item => item.Level == ValidationLogLevel.Error &&
+            item.Message.Contains("failed after 3 attempt(s)") && item.Message.Contains("PreCondition"));
     }
 
     [Theory]
     [InlineData("value")]
-    [InlineData("pre")]
     [InlineData("target")]
-    [InlineData("post")]
     public void Blank_required_values_fail_before_UI_access(string field)
     {
         var adapter = new FakeAdapter();
-        var config = field switch
-        {
-            "value" => Config() with { ValueToBeWritten = " " },
-            "pre" => Config() with { PreConditionSelector = "" },
-            "target" => Config() with { TargetSelector = "" },
-            _ => Config() with { PostConditionSelector = "" }
-        };
+        var config = field == "value"
+            ? Config() with { ValueToBeWritten = " " }
+            : Config() with { TargetSelector = "" };
 
         var exception = Assert.Throws<ValidatedTypeIntoException>(() =>
             new ValidatedTypeIntoEngine(adapter, new RecordingLogger()).Execute(config));
@@ -118,19 +188,22 @@ public sealed class EngineTests
     }
 
     [Fact]
-    public void Unicode_value_is_passed_unchanged_and_not_logged()
+    public void Unicode_value_and_selector_are_never_logged()
     {
         const string value = "عميل-١٢٣";
-        var work = new FakeTarget();
+        const string selector = "<wnd title='خاص'/><ctrl id='secret'/>";
         var logger = new RecordingLogger();
-        var adapter = new FakeAdapter()
-            .Add("pre", new FakeTarget())
-            .Add("target", work)
-            .Add("post", new FakeTarget { Text = value });
+        var adapter = new FakeAdapter().Add(selector,
+            new FakeTarget(), new FakeTarget(), new FakeTarget { Text = value });
 
-        new ValidatedTypeIntoEngine(adapter, logger).Execute(Config() with { ValueToBeWritten = value });
+        new ValidatedTypeIntoEngine(adapter, logger).Execute(Config() with
+        {
+            ValueToBeWritten = value,
+            TargetSelector = selector
+        });
 
-        Assert.Equal(value, work.LastType?.Value);
-        Assert.DoesNotContain(logger.Events, item => item.Message.Contains(value, StringComparison.Ordinal));
+        Assert.DoesNotContain(logger.Events, item =>
+            item.Message.Contains(value, StringComparison.Ordinal) || item.Message.Contains(selector, StringComparison.Ordinal));
+        Assert.Contains(logger.Events, item => item.Message.Contains($"{value.Length} characters"));
     }
 }

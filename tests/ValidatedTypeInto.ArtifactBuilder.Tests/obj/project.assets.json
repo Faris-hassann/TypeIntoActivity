@@ -396,7 +396,7 @@
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "BuildArtifacts/1.0.0": {
+      "BuildArtifacts/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
         "compile": {
@@ -902,7 +902,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "BuildArtifacts/1.0.0": {
+    "BuildArtifacts/1.0.1": {
       "type": "project",
       "path": "../../tools/ValidatedTypeInto.ArtifactBuilder/ValidatedTypeInto.ArtifactBuilder.csproj",
       "msbuildProject": "../../tools/ValidatedTypeInto.ArtifactBuilder/ValidatedTypeInto.ArtifactBuilder.csproj"
@@ -910,7 +910,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0-windows": [
-      "BuildArtifacts >= 1.0.0",
+      "BuildArtifacts >= 1.0.1",
       "Microsoft.NET.Test.Sdk >= 17.13.0",
       "coverlet.collector >= 6.0.4",
       "xunit >= 2.9.3",
@@ -921,7 +921,7 @@
     "C:\\Users\\VOIS\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\tests\\ValidatedTypeInto.ArtifactBuilder.Tests\\ValidatedTypeInto.ArtifactBuilder.Tests.csproj",
       "projectName": "ValidatedTypeInto.ArtifactBuilder.Tests",

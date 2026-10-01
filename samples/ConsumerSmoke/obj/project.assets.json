@@ -3025,7 +3025,7 @@
           }
         }
       },
-      "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.0": {
+      "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.1": {
         "type": "package",
         "dependencies": {
           "System.Activities.ViewModels": "1.20260609.1",
@@ -9419,16 +9419,16 @@
         "uipath.workflow.runtime.nuspec"
       ]
     },
-    "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.0": {
-      "sha512": "olXIP+j8+8mmaJNXSYjYva97qBlbn/K0WFb4U7jRZciE4RYWbRJ1r489YoK5l3/K6B9ZrpNpMH0ZNTjzK1gU+w==",
+    "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.1": {
+      "sha512": "trRYNYQZEghS3NwwbxntXHqmGiY2ETBsyHdD/SxHepSsG+paeDI7N3AFu9R3PWsEQQ1n95S+oJdVkzm6Oy8mYg==",
       "type": "package",
-      "path": "vodafone.robotics.validatedtypeinto.activities/1.0.0",
+      "path": "vodafone.robotics.validatedtypeinto.activities/1.0.1",
       "files": [
         ".nupkg.metadata",
         "README.md",
         "lib/net6.0-windows7.0/Vodafone.Robotics.ValidatedTypeInto.Activities.dll",
         "lib/net6.0-windows7.0/Vodafone.Robotics.ValidatedTypeInto.Activities.xml",
-        "vodafone.robotics.validatedtypeinto.activities.1.0.0.nupkg.sha512",
+        "vodafone.robotics.validatedtypeinto.activities.1.0.1.nupkg.sha512",
         "vodafone.robotics.validatedtypeinto.activities.nuspec"
       ]
     }
@@ -9437,14 +9437,14 @@
     "net6.0-windows7.0": [
       "UiPath.Activities.Api >= 24.10.1",
       "UiPath.Workflow >= 6.0.0-20240401-07",
-      "Vodafone.Robotics.ValidatedTypeInto.Activities >= 1.0.0"
+      "Vodafone.Robotics.ValidatedTypeInto.Activities >= 1.0.1"
     ]
   },
   "packageFolders": {
     "C:\\Users\\VOIS\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\samples\\ConsumerSmoke\\ConsumerSmoke.csproj",
       "projectName": "ConsumerSmoke",
@@ -9500,7 +9500,7 @@
           },
           "Vodafone.Robotics.ValidatedTypeInto.Activities": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.0.1, )"
           }
         },
         "imports": [

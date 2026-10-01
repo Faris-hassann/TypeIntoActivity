@@ -12,11 +12,16 @@ public sealed class PublicSurfaceTests
 {
     private static readonly string[] ExpectedArguments =
     {
-        "in_intTimeoutL", "in_intTimeoutS", "in_intNumberOfRetries", "in_tspRetryInterval",
-        "in_strValueToBeWritten", "in_strPreConditionSelector", "in_strPreConditionSuccessMsg",
-        "in_strPreConditionFailedMsg", "in_strTargetSelector", "in_boolAlterIfDisabled",
-        "in_boolClickBeforeTyping", "in_boolEmptyField", "in_boolSimulateType",
-        "in_strPostConditionSelector", "in_strPostConditionSuccessMsg", "in_strPostConditionFailedMsg"
+        "in_intTimeout", "in_intNumberOfRetries", "in_tspRetryInterval", "in_strValueToBeWritten",
+        "in_strTargetSelector", "in_boolAlterIfDisabled", "in_boolClickBeforeTyping",
+        "in_boolEmptyField", "in_boolSimulateType"
+    };
+
+    private static readonly string[] RemovedArguments =
+    {
+        "in_intTimeoutL", "in_intTimeoutS", "in_strPreConditionSelector",
+        "in_strPreConditionSuccessMsg", "in_strPreConditionFailedMsg", "in_strPostConditionSelector",
+        "in_strPostConditionSuccessMsg", "in_strPostConditionFailedMsg"
     };
 
     [Fact]
@@ -36,9 +41,10 @@ public sealed class PublicSurfaceTests
             .ToArray();
 
         Assert.Equal(ExpectedArguments.OrderBy(name => name), properties.Select(property => property.Name).OrderBy(name => name));
-        foreach (var required in new[] { "in_strValueToBeWritten", "in_strPreConditionSelector", "in_strTargetSelector", "in_strPostConditionSelector" })
+        foreach (var required in new[] { "in_strValueToBeWritten", "in_strTargetSelector" })
             Assert.NotNull(properties.Single(property => property.Name == required).GetCustomAttribute<RequiredArgumentAttribute>());
         Assert.All(properties, property => Assert.NotNull(property.GetCustomAttribute<CategoryAttribute>()));
+        Assert.All(RemovedArguments, name => Assert.Null(typeof(ActivityUnderTest).GetProperty(name)));
     }
 
     [Fact]
@@ -46,8 +52,7 @@ public sealed class PublicSurfaceTests
     {
         var activity = new ActivityUnderTest();
 
-        Assert.Equal(30_000, ((Literal<int>)activity.in_intTimeoutL.Expression).Value);
-        Assert.Equal(10_000, ((Literal<int>)activity.in_intTimeoutS.Expression).Value);
+        Assert.Equal(10_000, ((Literal<int>)activity.in_intTimeout.Expression).Value);
         Assert.Equal(2, ((Literal<int>)activity.in_intNumberOfRetries.Expression).Value);
         Assert.Equal(TimeSpan.FromSeconds(1), ((Literal<TimeSpan>)activity.in_tspRetryInterval.Expression).Value);
         Assert.True(((Literal<bool>)activity.in_boolAlterIfDisabled.Expression).Value);

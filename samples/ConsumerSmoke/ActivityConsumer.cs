@@ -5,12 +5,10 @@ namespace ConsumerSmoke;
 
 public static class ActivityConsumer
 {
-    public static Activity Create(string preSelector, string targetSelector, string postSelector, string value) =>
+    public static Activity Create(string targetSelector, string value) =>
         new ValidatedTypeInto
         {
-            in_strPreConditionSelector = preSelector,
             in_strTargetSelector = targetSelector,
-            in_strPostConditionSelector = postSelector,
             in_strValueToBeWritten = value
         };
 }

@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\tests\\ValidatedTypeInto.ArtifactBuilder.Tests\\ValidatedTypeInto.ArtifactBuilder.Tests.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\tests\\ValidatedTypeInto.ArtifactBuilder.Tests\\ValidatedTypeInto.ArtifactBuilder.Tests.csproj",
         "projectName": "ValidatedTypeInto.ArtifactBuilder.Tests",
@@ -366,7 +366,7 @@
       }
     },
     "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\tools\\ValidatedTypeInto.ArtifactBuilder\\ValidatedTypeInto.ArtifactBuilder.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\tools\\ValidatedTypeInto.ArtifactBuilder\\ValidatedTypeInto.ArtifactBuilder.csproj",
         "projectName": "BuildArtifacts",

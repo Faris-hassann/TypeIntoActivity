@@ -6,6 +6,6 @@
   <ItemGroup>
     <PackageReference Include="UiPath.Activities.Api" Version="24.10.1" PrivateAssets="all" />
     <PackageReference Include="UiPath.Workflow" Version="6.0.0-20240401-07" PrivateAssets="all" />
-    <PackageReference Include="Vodafone.Robotics.ValidatedTypeInto.Activities" Version="1.0.0" />
+    <PackageReference Include="Vodafone.Robotics.ValidatedTypeInto.Activities" Version="1.0.1" />
   </ItemGroup>
 </Project>

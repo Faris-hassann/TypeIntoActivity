@@ -6,11 +6,11 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "ConsumerSmoke/1.0.0": {
+      "ConsumerSmoke/1.0.1": {
         "dependencies": {
           "UiPath.Activities.Api": "24.10.1",
           "UiPath.Workflow": "6.0.0-20240401-07",
-          "Vodafone.Robotics.ValidatedTypeInto.Activities": "1.0.0"
+          "Vodafone.Robotics.ValidatedTypeInto.Activities": "1.0.1"
         },
         "runtime": {
           "ConsumerSmoke.dll": {}
@@ -1312,22 +1312,22 @@
           }
         }
       },
-      "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.0": {
+      "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.1": {
         "dependencies": {
           "System.Activities.ViewModels": "1.20260609.1",
           "UiPath.UIAutomation.Activities": "24.10.13"
         },
         "runtime": {
           "lib/net6.0-windows7.0/Vodafone.Robotics.ValidatedTypeInto.Activities.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
           }
         }
       }
     }
   },
   "libraries": {
-    "ConsumerSmoke/1.0.0": {
+    "ConsumerSmoke/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1584,12 +1584,12 @@
       "path": "uipath.workflow.runtime/6.0.0-20240401-07",
       "hashPath": "uipath.workflow.runtime.6.0.0-20240401-07.nupkg.sha512"
     },
-    "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.0": {
+    "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-olXIP+j8+8mmaJNXSYjYva97qBlbn/K0WFb4U7jRZciE4RYWbRJ1r489YoK5l3/K6B9ZrpNpMH0ZNTjzK1gU+w==",
-      "path": "vodafone.robotics.validatedtypeinto.activities/1.0.0",
-      "hashPath": "vodafone.robotics.validatedtypeinto.activities.1.0.0.nupkg.sha512"
+      "sha512": "sha512-trRYNYQZEghS3NwwbxntXHqmGiY2ETBsyHdD/SxHepSsG+paeDI7N3AFu9R3PWsEQQ1n95S+oJdVkzm6Oy8mYg==",
+      "path": "vodafone.robotics.validatedtypeinto.activities/1.0.1",
+      "hashPath": "vodafone.robotics.validatedtypeinto.activities.1.0.1.nupkg.sha512"
     }
   }
 }

@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\samples\\ConsumerSmoke\\ConsumerSmoke.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\samples\\ConsumerSmoke\\ConsumerSmoke.csproj",
         "projectName": "ConsumerSmoke",
@@ -61,7 +61,7 @@
             },
             "Vodafone.Robotics.ValidatedTypeInto.Activities": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.0.1, )"
             }
           },
           "imports": [

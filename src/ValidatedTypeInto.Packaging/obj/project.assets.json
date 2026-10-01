@@ -2461,7 +2461,7 @@
           "lib/net6.0-windows7.0/UiPath.Vision.dll": {}
         }
       },
-      "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.0": {
+      "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -7951,7 +7951,7 @@
         "uipath.vision.nuspec"
       ]
     },
-    "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.0": {
+    "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.1": {
       "type": "project",
       "path": "../ValidatedTypeInto.Activities/ValidatedTypeInto.Activities.csproj",
       "msbuildProject": "../ValidatedTypeInto.Activities/ValidatedTypeInto.Activities.csproj"
@@ -7961,14 +7961,14 @@
     "net6.0-windows7.0": [
       "System.Activities.ViewModels >= 1.20260609.1",
       "UiPath.UIAutomation.Activities >= 24.10.13",
-      "Vodafone.Robotics.ValidatedTypeInto.Runtime >= 1.0.0"
+      "Vodafone.Robotics.ValidatedTypeInto.Runtime >= 1.0.1"
     ]
   },
   "packageFolders": {
     "C:\\Users\\VOIS\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Packaging\\ValidatedTypeInto.Packaging.csproj",
       "projectName": "Vodafone.Robotics.ValidatedTypeInto.Activities",

@@ -14,11 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("UiPath Windows activity for validated Type Into with precondition, read-back veri" +
     "fication, retry, and Robot-native logging."))]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9cef3605c1fad273935ddb92b103570f24ae89e")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1+b194dc328c1a24190a696c335d3eed04ca69d138")]
 [assembly: System.Reflection.AssemblyProductAttribute("ValidatedTypeInto.Packaging")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ValidatedTypeInto.Packaging")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.1.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 

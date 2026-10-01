@@ -25,25 +25,34 @@ public sealed class ValidatedTypeIntoEngine
 
         for (var attempt = 1; attempt <= maxAttempts; attempt++)
         {
+            Log(configuration, ValidationLogLevel.Information, attempt, maxAttempts,
+                "Attempt started: validating the target and requested operation.");
             try
             {
-                ExecuteAttempt(configuration, attempt);
+                ExecuteAttempt(configuration, attempt, maxAttempts);
                 return;
             }
             catch (ValidatedTypeIntoException ex)
             {
                 lastFailure = ex;
                 if (attempt == maxAttempts)
+                {
+                    Log(configuration, ValidationLogLevel.Error, attempt, maxAttempts,
+                        $"Validation failed after {maxAttempts} attempt(s); final stage: {ex.Stage}.");
                     throw new ValidatedTypeIntoException(
                         $"Validated Type Into failed after {maxAttempts} attempt(s) during {ex.Stage}: {ex.Message}",
                         ex.Stage,
                         attempt,
                         ex);
+                }
+                Log(configuration, ValidationLogLevel.Information, attempt, maxAttempts,
+                    $"Retry scheduled after {ex.Stage} failure; attempt {attempt + 1}/{maxAttempts} will begin in {configuration.RetryInterval.TotalMilliseconds:0} ms.");
                 _delay(configuration.RetryInterval);
             }
             catch (Exception ex)
             {
-                _logger.Log(ValidationLogLevel.Error, $"Unexpected failure on attempt {attempt}: {ex.Message}");
+                Log(configuration, ValidationLogLevel.Error, attempt, maxAttempts,
+                    $"Unexpected {ex.GetType().Name} encountered; execution cannot continue safely.");
                 throw;
             }
         }
@@ -51,47 +60,60 @@ public sealed class ValidatedTypeIntoEngine
         throw lastFailure!;
     }
 
-    private void ExecuteAttempt(ValidatedTypeIntoConfiguration configuration, int attempt)
+    private void ExecuteAttempt(ValidatedTypeIntoConfiguration configuration, int attempt, int maxAttempts)
     {
-        using (var precondition = _automation.Resolve(configuration.PreConditionSelector, configuration.TimeoutL))
+        using (var precondition = _automation.Resolve(configuration.TargetSelector, configuration.TimeoutMilliseconds))
         {
             if (precondition is null)
             {
-                var message = MessageOrDefault(configuration.PreConditionFailedMessage, "Precondition failed: the required element was not found.");
-                _logger.Log(ValidationLogLevel.Error, message);
+                const string message = "PreCondition failed: the target element was not found within the configured timeout.";
+                Log(configuration, ValidationLogLevel.Error, attempt, maxAttempts, message);
                 throw new ValidatedTypeIntoException(message, ValidationStage.PreCondition, attempt);
             }
-            _logger.Log(ValidationLogLevel.Information,
-                MessageOrDefault(configuration.PreConditionSuccessMessage, "Precondition succeeded: the required element exists."));
+            Log(configuration, ValidationLogLevel.Information, attempt, maxAttempts,
+                "PreCondition passed: the target element exists and is available for the operation.");
         }
 
-        using (var target = _automation.Resolve(configuration.TargetSelector, configuration.TimeoutS))
+        using (var target = _automation.Resolve(configuration.TargetSelector, configuration.TimeoutMilliseconds))
         {
             if (target is null)
-                throw new ValidatedTypeIntoException("The Type Into target was not found.", ValidationStage.DoWork, attempt);
+            {
+                const string message = "DoWork failed: the target element was not found within the configured timeout.";
+                Log(configuration, ValidationLogLevel.Error, attempt, maxAttempts, message);
+                throw new ValidatedTypeIntoException(message, ValidationStage.DoWork, attempt);
+            }
             try
             {
                 target.TypeInto(configuration.ValueToBeWritten, configuration.AlterIfDisabled,
                     configuration.ClickBeforeTyping, configuration.EmptyField, configuration.SimulateType);
+                var inputMethod = configuration.SimulateType ? "Simulated" : "WindowMessages";
+                Log(configuration, ValidationLogLevel.Information, attempt, maxAttempts,
+                    $"DoWork completed: Type Into executed with InputMethod={inputMethod}, " +
+                    $"ClickBeforeTyping={configuration.ClickBeforeTyping}, EmptyField={configuration.EmptyField}, " +
+                    $"AlterIfDisabled={configuration.AlterIfDisabled}.");
             }
             catch (Exception ex)
             {
-                throw new ValidatedTypeIntoException("The Type Into action failed.", ValidationStage.DoWork, attempt, ex);
+                const string message = "DoWork failed: the Type Into operation could not be completed.";
+                Log(configuration, ValidationLogLevel.Error, attempt, maxAttempts, message);
+                throw new ValidatedTypeIntoException(message, ValidationStage.DoWork, attempt, ex);
             }
         }
 
-        using var postcondition = _automation.Resolve(configuration.PostConditionSelector, configuration.TimeoutS);
+        using var postcondition = _automation.Resolve(configuration.TargetSelector, configuration.TimeoutMilliseconds);
         var actual = postcondition?.GetText();
         if (postcondition is not null && string.Equals(actual?.Trim(), configuration.ValueToBeWritten.Trim(), StringComparison.Ordinal))
         {
-            _logger.Log(ValidationLogLevel.Information,
-                MessageOrDefault(configuration.PostConditionSuccessMessage, "Postcondition succeeded: the written value was verified."));
+            Log(configuration, ValidationLogLevel.Information, attempt, maxAttempts,
+                $"PostCondition passed: the target value matches the expected value ({configuration.ValueToBeWritten.Trim().Length} characters).");
             return;
         }
 
-        var failedMessage = MessageOrDefault(configuration.PostConditionFailedMessage,
-            postcondition is null ? "Postcondition failed: the verification element was not found." : "Postcondition failed: the value does not match.");
-        _logger.Log(ValidationLogLevel.Error, failedMessage);
+        var failedMessage = postcondition is null
+            ? "PostCondition failed: the target element was not found within the configured timeout."
+            : $"PostCondition failed: the target value does not match the expected value " +
+              $"(expected length {configuration.ValueToBeWritten.Trim().Length}, actual length {actual?.Trim().Length ?? 0}).";
+        Log(configuration, ValidationLogLevel.Error, attempt, maxAttempts, failedMessage);
         throw new ValidatedTypeIntoException(failedMessage, ValidationStage.PostCondition, attempt);
     }
 
@@ -99,11 +121,8 @@ public sealed class ValidatedTypeIntoEngine
     {
         ArgumentNullException.ThrowIfNull(configuration);
         Require(configuration.ValueToBeWritten, nameof(configuration.ValueToBeWritten));
-        Require(configuration.PreConditionSelector, nameof(configuration.PreConditionSelector));
         Require(configuration.TargetSelector, nameof(configuration.TargetSelector));
-        Require(configuration.PostConditionSelector, nameof(configuration.PostConditionSelector));
-        if (configuration.TimeoutL < 0) throw Configuration("Long timeout cannot be negative.");
-        if (configuration.TimeoutS < 0) throw Configuration("Short timeout cannot be negative.");
+        if (configuration.TimeoutMilliseconds < 0) throw Configuration("Timeout cannot be negative.");
         if (configuration.NumberOfRetries < 0) throw Configuration("Number of retries cannot be negative.");
         if (configuration.RetryInterval < TimeSpan.Zero) throw Configuration("Retry interval cannot be negative.");
     }
@@ -116,6 +135,7 @@ public sealed class ValidatedTypeIntoEngine
     private static ValidatedTypeIntoException Configuration(string message)
         => new(message, ValidationStage.Configuration, 0);
 
-    private static string MessageOrDefault(string? supplied, string fallback)
-        => string.IsNullOrWhiteSpace(supplied) ? fallback : supplied;
+    private void Log(ValidatedTypeIntoConfiguration configuration, ValidationLogLevel level,
+        int attempt, int maxAttempts, string message)
+        => _logger.Log(level, $"{configuration.ActivityName} | Attempt {attempt}/{maxAttempts} | {message}");
 }

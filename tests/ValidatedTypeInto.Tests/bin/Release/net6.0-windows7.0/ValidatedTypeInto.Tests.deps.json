@@ -6,14 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "ValidatedTypeInto.Tests/1.0.0": {
+      "ValidatedTypeInto.Tests/1.0.1": {
         "dependencies": {
           "Microsoft.NET.Test.Sdk": "17.11.1",
           "UiPath.Activities.Api": "24.10.1",
           "UiPath.Workflow": "6.0.0-20240401-07",
-          "Vodafone.Robotics.ValidatedTypeInto.Runtime": "1.0.0",
+          "Vodafone.Robotics.ValidatedTypeInto.Runtime": "1.0.1",
           "xunit": "2.9.2",
-          "Vodafone.Robotics.ValidatedTypeInto.Activities": "1.0.0.0"
+          "Vodafone.Robotics.ValidatedTypeInto.Activities": "1.0.1.0"
         },
         "runtime": {
           "ValidatedTypeInto.Tests.dll": {}
@@ -1622,7 +1622,7 @@
           }
         }
       },
-      "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.0": {
+      "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.1": {
         "dependencies": {
           "System.Activities.ViewModels": "1.20260609.1",
           "UiPath.UIAutomation.Activities": "24.10.13"
@@ -1633,18 +1633,18 @@
           }
         }
       },
-      "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.0.0": {
+      "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.1.0": {
         "runtime": {
           "Vodafone.Robotics.ValidatedTypeInto.Activities.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
           }
         }
       }
     }
   },
   "libraries": {
-    "ValidatedTypeInto.Tests/1.0.0": {
+    "ValidatedTypeInto.Tests/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1971,12 +1971,12 @@
       "path": "xunit.extensibility.execution/2.9.2",
       "hashPath": "xunit.extensibility.execution.2.9.2.nupkg.sha512"
     },
-    "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.0": {
+    "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.0.0": {
+    "Vodafone.Robotics.ValidatedTypeInto.Activities/1.0.1.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

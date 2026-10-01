@@ -3409,7 +3409,7 @@
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.0": {
+      "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -10270,7 +10270,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.0": {
+    "Vodafone.Robotics.ValidatedTypeInto.Runtime/1.0.1": {
       "type": "project",
       "path": "../../src/ValidatedTypeInto.Activities/ValidatedTypeInto.Activities.csproj",
       "msbuildProject": "../../src/ValidatedTypeInto.Activities/ValidatedTypeInto.Activities.csproj"
@@ -10281,7 +10281,7 @@
       "Microsoft.NET.Test.Sdk >= 17.11.1",
       "UiPath.Activities.Api >= 24.10.1",
       "UiPath.Workflow >= 6.0.0-20240401-07",
-      "Vodafone.Robotics.ValidatedTypeInto.Runtime >= 1.0.0",
+      "Vodafone.Robotics.ValidatedTypeInto.Runtime >= 1.0.1",
       "coverlet.collector >= 6.0.2",
       "xunit >= 2.9.2",
       "xunit.runner.visualstudio >= 2.8.2"
@@ -10291,7 +10291,7 @@
     "C:\\Users\\VOIS\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\tests\\ValidatedTypeInto.Tests\\ValidatedTypeInto.Tests.csproj",
       "projectName": "ValidatedTypeInto.Tests",
