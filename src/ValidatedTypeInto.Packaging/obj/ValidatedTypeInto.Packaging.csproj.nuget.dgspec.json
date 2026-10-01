@@ -1,0 +1,197 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Packaging\\ValidatedTypeInto.Packaging.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Activities\\ValidatedTypeInto.Activities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Activities\\ValidatedTypeInto.Activities.csproj",
+        "projectName": "Vodafone.Robotics.ValidatedTypeInto.Runtime",
+        "projectPath": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Activities\\ValidatedTypeInto.Activities.csproj",
+        "packagesPath": "C:\\Users\\VOIS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Activities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\NuGet.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/uipath/Public.Feeds/_packaging/UiPath-Official/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "framework": "net6.0-windows7.0",
+            "targetAlias": "net6.0-windows7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.400"
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "framework": "net6.0-windows7.0",
+          "targetAlias": "net6.0-windows7.0",
+          "dependencies": {
+            "System.Activities.ViewModels": {
+              "target": "Package",
+              "version": "[1.20260609.1, )"
+            },
+            "UiPath.Activities.Api": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[24.10.1, )"
+            },
+            "UiPath.UIAutomation.Activities": {
+              "target": "Package",
+              "version": "[24.10.13, )"
+            },
+            "UiPath.Workflow": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0-20240401-07, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\VOIS\\AppData\\Local\\Microsoft\\dotnet\\sdk\\10.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Packaging\\ValidatedTypeInto.Packaging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Packaging\\ValidatedTypeInto.Packaging.csproj",
+        "projectName": "Vodafone.Robotics.ValidatedTypeInto.Activities",
+        "projectPath": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Packaging\\ValidatedTypeInto.Packaging.csproj",
+        "packagesPath": "C:\\Users\\VOIS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Packaging\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\NuGet.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/uipath/Public.Feeds/_packaging/UiPath-Official/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "framework": "net6.0-windows7.0",
+            "targetAlias": "net6.0-windows7.0",
+            "projectReferences": {
+              "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Activities\\ValidatedTypeInto.Activities.csproj": {
+                "projectPath": "C:\\Users\\VOIS\\OneDrive\\Desktop\\Faris\\TypeIntoActivity\\src\\ValidatedTypeInto.Activities\\ValidatedTypeInto.Activities.csproj",
+                "privateAssets": "all"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.400"
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "framework": "net6.0-windows7.0",
+          "targetAlias": "net6.0-windows7.0",
+          "dependencies": {
+            "System.Activities.ViewModels": {
+              "target": "Package",
+              "version": "[1.20260609.1, )"
+            },
+            "UiPath.UIAutomation.Activities": {
+              "target": "Package",
+              "version": "[24.10.13, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.36, 6.0.36]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\VOIS\\AppData\\Local\\Microsoft\\dotnet\\sdk\\10.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

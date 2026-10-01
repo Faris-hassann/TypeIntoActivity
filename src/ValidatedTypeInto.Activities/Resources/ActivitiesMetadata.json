@@ -1,0 +1,13 @@
+{
+  "resourceManagerName": "Vodafone.Robotics.ValidatedTypeInto.Resources.Resources",
+  "activities": [
+    {
+      "fullName": "Vodafone.Robotics.ValidatedTypeInto.Activities.ValidatedTypeInto",
+      "shortName": "ValidatedTypeInto",
+      "displayNameKey": "ValidatedTypeInto_DisplayName",
+      "descriptionKey": "ValidatedTypeInto_Description",
+      "categoryKey": "Category_UIValidation",
+      "viewModelType": "Vodafone.Robotics.ValidatedTypeInto.ViewModels.ValidatedTypeIntoViewModel"
+    }
+  ]
+}

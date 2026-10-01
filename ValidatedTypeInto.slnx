@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ValidatedTypeInto.Activities/ValidatedTypeInto.Activities.csproj" />
+    <Project Path="src/ValidatedTypeInto.Packaging/ValidatedTypeInto.Packaging.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ValidatedTypeInto.Tests/ValidatedTypeInto.Tests.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/ConsumerSmoke/ConsumerSmoke.csproj" />
+  </Folder>
+</Solution>

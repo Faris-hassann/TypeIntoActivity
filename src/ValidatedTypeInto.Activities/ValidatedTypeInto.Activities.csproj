@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Vodafone.Robotics.ValidatedTypeInto.Activities</AssemblyName>
+    <PackageId>Vodafone.Robotics.ValidatedTypeInto.Runtime</PackageId>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Vodafone.Robotics.ValidatedTypeInto</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591;MSB3246</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\ActivitiesMetadata.json" />
+    <EmbeddedResource Include="Resources\ActivitiesMetadata.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Activities.ViewModels" Version="1.20260609.1" />
+    <PackageReference Include="UiPath.Activities.Api" Version="24.10.1" PrivateAssets="all" />
+    <PackageReference Include="UiPath.Workflow" Version="6.0.0-20240401-07" PrivateAssets="all" />
+    <PackageReference Include="UiPath.UIAutomation.Activities" Version="24.10.13" />
+  </ItemGroup>
+</Project>

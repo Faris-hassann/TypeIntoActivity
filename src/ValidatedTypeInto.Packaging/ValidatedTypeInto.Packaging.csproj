@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Vodafone.Robotics.ValidatedTypeInto.Activities</PackageId>
+    <Authors>Vodafone Robotics</Authors>
+    <Company>Vodafone</Company>
+    <Description>UiPath Windows activity for validated Type Into with precondition, read-back verification, retry, and Robot-native logging.</Description>
+    <PackageTags>UiPathActivities;UiPath;RPA;UIAutomation;TypeInto;Validation</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageOutputPath>..\..\artifacts\packages</PackageOutputPath>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ValidatedTypeInto.Activities\ValidatedTypeInto.Activities.csproj" PrivateAssets="all" />
+    <PackageReference Include="System.Activities.ViewModels" Version="1.20260609.1" />
+    <PackageReference Include="UiPath.UIAutomation.Activities" Version="24.10.13" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="..\ValidatedTypeInto.Activities\bin\$(Configuration)\net6.0-windows7.0\Vodafone.Robotics.ValidatedTypeInto.Activities.dll" Pack="true" PackagePath="lib\net6.0-windows7.0\" />
+    <None Include="..\ValidatedTypeInto.Activities\bin\$(Configuration)\net6.0-windows7.0\Vodafone.Robotics.ValidatedTypeInto.Activities.xml" Pack="true" PackagePath="lib\net6.0-windows7.0\" />
+  </ItemGroup>
+</Project>

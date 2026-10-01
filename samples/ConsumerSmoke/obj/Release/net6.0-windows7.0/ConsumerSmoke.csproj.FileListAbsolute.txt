@@ -1,0 +1,12 @@
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ConsumerSmoke.csproj.AssemblyReference.cache
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ConsumerSmoke.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ConsumerSmoke.AssemblyInfoInputs.cache
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ConsumerSmoke.AssemblyInfo.cs
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ConsumerSmoke.csproj.CoreCompileInputs.cache
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\bin\Release\net6.0-windows7.0\ConsumerSmoke.deps.json
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\bin\Release\net6.0-windows7.0\ConsumerSmoke.dll
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\bin\Release\net6.0-windows7.0\ConsumerSmoke.pdb
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ConsumerSmoke.dll
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\refint\ConsumerSmoke.dll
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ConsumerSmoke.pdb
+C:\Users\VOIS\OneDrive\Desktop\Faris\TypeIntoActivity\samples\ConsumerSmoke\obj\Release\net6.0-windows7.0\ref\ConsumerSmoke.dll
